@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div class="list-container">
+<div>
+  <a href="javascript:void(0)" (click)="addCategory()">Add Category</a>
+</div><br>
+    <div class="todo-container column-container">
+      <div class="row sub-heading">
+        <div class="column">Category</div>
+        <div class="column">Tag</div>
+        <div class="column">Role</div>
+        <div class="column">Action</div>
+      </div>
+      <br>
+      <div class="list"
+           cdkDropList
+           #todoList="cdkDropList"
+           [cdkDropListData]="todos"
+           [cdkDropListConnectedTo]="[doneList]"
+           (cdkDropListDropped)="onDrop($event)">
+        <mat-card *ngFor="let todo of todos" cdkDrag>
+          <div class="row">
+            <div class="column">{{todo.categoryName}}</div>
+            <div class="column">{{todo.tagName}}</div>
+            <div class="column">{{todo.role}}</div>
+            <div class="column"><a href="javascript:void(0)" (click)="onEditClick(todo.id)"><i class='fas fa-pencil-alt'>Edit</i></a></div>
+          </div>
+          <!-- <mat-card-header>
+            <mat-card-title>{{todo.categoryName}} {{todo.tagName}}</mat-card-title>
+          </mat-card-header><a href="javascript:void(0)" (click)="onEditClick(todo.id)">Edit</a> !-->
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="done-container column-container">
+      <div class="row sub-heading">
+        <div class="column">FAQ</div>
+      </div>
+      <br>
+      <div class="list"
+           cdkDropList
+           #doneList="cdkDropList"
+           [cdkDropListData]="completed"
+           [cdkDropListConnectedTo]="todoList"
+           (cdkDropListDropped)="onDrop($event)">
+        <mat-card *ngFor="let complete of completed" cdkDrag>
+          <mat-card-header>
+            <mat-card-title>{{complete.categoryName}} {{complete.tagName}}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+</div>
+

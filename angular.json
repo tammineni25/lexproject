@@ -25,6 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
+            "allowedCommonJsDependencies": [
+              "lodash"
+           ],
             "scripts": []
           },
           "configurations": {
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c6d03316-cc5c-47c0-be94-f53acde1b655"
   }
 }

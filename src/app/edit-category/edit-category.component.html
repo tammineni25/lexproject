@@ -1,0 +1,21 @@
+<div class="edit-heading">{{heading}}</div>
+<div>
+    <mat-card>
+        <form [formGroup]="editForm">
+            <label for="categoryName">Category</label>
+            <input  type="text"  formControlName="categoryName">
+        
+            <label for="tagName">Tag</label>
+            <textarea  type="text" formControlName="tagName" rows="4" cols="50"></textarea>
+            <label for="role">Role</label>
+            <select name="role" id="cars" formControlName="role">
+                <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+              </select>
+            <div style="text-align: center;">
+                <button class="button" (click)="close()">Close</button>
+                <button type="submit" class="button" (click)="onSubmit()">Update</button>
+            </div>
+          </form>
+    </mat-card>
+</div>
+
